@@ -1,0 +1,26 @@
+.input__container {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.input__container input {
+  padding: 6px;
+  padding-left: 16px;
+  height: 40px;
+  width: 250px;
+  border: 1px solid var(--light-gray);
+}
+
+.input__container button {
+  height: 40px;
+  width: 40px;
+  border: none;
+  background-color: var(--principal-color);
+  color: #ffffff;
+  cursor: pointer;
+}
+.input__container button:hover {
+  scale: 1.05;
+  background-color: #ff1f1f;
+}
