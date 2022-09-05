@@ -5,19 +5,115 @@
   align-items: center;
   flex-wrap: wrap;
   margin: auto;
-  margin-top: 150px;
+  margin-top: 100px;
+  color: var(--text);
 }
-.product-swiper__container {
+.page-position{
   width: 85%;
+  display: flex;
+  align-items: baseline;
+  gap: 40px;
+  }
+  .page-position li{
+    color: var(--principal-color);
+  }
+  .page-position li p{
+    font-weight: bold;
+    font-size: 17px;
+  }
+.product-swiper__container {
+  width: 90%;
   max-width: 400px;
-  height: 150px;
+  height: 300px;
 }
 .swiper-slide {
   width: 100%;
   width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .swiper-slide img {
-  width: 100%;
-  height: 100%;
+  width: 75%;
+  height: 80%;
   object-fit: contain;
+}
+.product-swiper__container .swiper-button-prev{
+  color: var(--principal-color);
+  font-weight: bold;
+  left: 0;
+}
+.product-swiper__container .swiper-button-next{
+  color: var(--principal-color);
+  font-weight: bold;
+  right: 0;
+}
+.product-id-info{
+  width: 80%;
+  max-width: 450px;
+  justify-self: center;
+  display: grid;
+}
+.product-id-info h3{
+font-size: 25px;
+margin: 16px 0;
+}
+.info-tobuy{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+.info-tobuy span{
+  color: var(--gray);
+}
+.id-info__price p{
+  font-size: 25px;
+  font-weight: bold;
+  margin-left: 6px;
+  margin-top: 6px;
+}
+.quantity__buttons{
+  margin-top: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.quantity__buttons button{
+width: 30px;
+height: 30px;
+border: 1px solid var(--light-gray);
+font-size: 25px;
+background-color: #ffffff;
+color: var(--principal-color);
+font-weight: bold;
+}
+.quantity__buttons span{
+  display: inline-block;
+  text-align: center;
+  width: 50px;
+  height: 30px;
+  padding: 3px;
+  border: 1px solid var(--light-gray);
+  font-size: 18px;
+}
+.btn-id-cart{
+  width: 100%;
+  height: 50px;
+  justify-self: center;
+  margin: 40px 0px;
+  background-color: var(--principal-color);
+  border: none;
+  color: #ffffff;
+  font-size: 18px;
+}
+.btn-id-cart i{
+  margin-left: 10px;
+}
+.product-id__description{
+  margin-bottom: 20px;
+}
+h4{
+  color: var(--principal-color);
+  margin: 30px 0;
+  font-size: 19px;
 }
