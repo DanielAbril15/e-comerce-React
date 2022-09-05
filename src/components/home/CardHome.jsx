@@ -12,7 +12,7 @@ const CardHome = ({ product }) => {
       <figure onClick={handleClickProduct} className="product__img">
         <img src={product.productImgs[0]} alt={product.title} />
       </figure>
-      <div className="product__info">
+      <div className="product-info">
         <h3>{product.title}</h3>
         <div className="info__price">
           <div>

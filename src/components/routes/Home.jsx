@@ -15,7 +15,7 @@ const Home = () => {
   return (
     <section>
       <SearchProduct />
-      <article className="products__container">
+      <article className="products">
         {products?.map((product) => (
           <CardHome key={product.id} product={product} />
         ))}

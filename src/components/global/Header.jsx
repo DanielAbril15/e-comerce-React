@@ -1,10 +1,11 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import "../styles/header.css";
 const Header = () => {
   return (
     <nav className="navbar">
       <div className="navbar__logo">
-        <p>e-commerce</p>
+        <NavLink to="/">e-commerce</NavLink>
       </div>
       <ul className="navbar__options">
         <li className="option ">
