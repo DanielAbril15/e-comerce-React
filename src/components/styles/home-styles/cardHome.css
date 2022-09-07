@@ -51,6 +51,7 @@
   align-items: center;
   border-radius: 50%;
   cursor: pointer;
+  border: none;
 }
 
 .price__cart:hover {

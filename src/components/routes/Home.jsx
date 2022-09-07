@@ -12,7 +12,7 @@ const Home = () => {
   }, []);
 
   const products = useSelector((state) => state.productsSlice);
-  console.log(products);
+
   return (
     <section>
       <SearchProduct />

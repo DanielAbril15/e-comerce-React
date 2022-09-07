@@ -1,0 +1,42 @@
+.user-profile {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.profile__container {
+  display: grid;
+  justify-content: center;
+  margin-top: 100px;
+}
+.profile-picture {
+  justify-self: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: var(--light-gray);
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+  align-items: center;
+}
+.profile-picture i {
+  color: var(--principal-color);
+  font-size: 40px;
+}
+.profile__container p {
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.profile__container button {
+  height: 30px;
+  border: none;
+  background-color: var(--principal-color);
+  color: #ffffff;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-size: 16px;
+  cursor: pointer;
+}

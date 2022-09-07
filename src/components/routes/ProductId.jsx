@@ -12,8 +12,6 @@ import { getAllProducts } from "../../store/slices/products.slice";
 const ProductId = () => {
   const [product, setProduct] = useState();
 
-
-
   const { id } = useParams();
 
   useEffect(() => {
@@ -22,41 +20,38 @@ const ProductId = () => {
       .get(URL)
       .then((res) => setProduct(res.data.data.product))
       .catch((err) => console.log(err));
+  }, [id]);
+
+  const [quantity, setQuantity] = useState(1);
+
+  const handlePlus = () => {
+    setQuantity(quantity + 1);
+  };
+
+  const handleMinor = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  };
+  const currentCategory = product?.category;
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllProducts());
   }, []);
 
-  const [quantity, setQuantity] = useState(1)
+  const products = useSelector((state) => state.productsSlice);
 
-  const handlePlus=()=>{
-    setQuantity(quantity+1)
-  }
-
-  const handleMinor=()=>{
-    if(quantity>1){
-      setQuantity(quantity-1)
-    }
-  }
-const currentCategory= product?.category
-
-const dispatch = useDispatch();
-
-useEffect(() => {
-  dispatch(getAllProducts());
-}, []);
-
-const products = useSelector(state=>state.productsSlice)
-
-const categoryMatch =products?.filter((productCategory)=>(
-  productCategory.category.name === currentCategory )
-  )
-  console.log(categoryMatch);
+  const categoryMatch = products?.filter(
+    (productCategory) => productCategory.category.name === currentCategory
+  );
   return (
     <section className="product-id">
       <ul className="page-position">
         <p>Home</p>
         <li>
-          <p>
-            {product?.title}
-          </p>
+          <p>{product?.title}</p>
         </li>
       </ul>
       <Swiper
@@ -92,18 +87,17 @@ const categoryMatch =products?.filter((productCategory)=>(
         </div>
         <button className="btn-id-cart">
           Add to cart
-          <i className="fa-solid fa-cart-shopping">
-          </i>
+          <i className="fa-solid fa-cart-shopping"></i>
         </button>
         <p className="product-id__description">{product?.description}</p>
       </article>
-      <article>
+      <article className="discover">
         <h4>Discover similar items</h4>
-
-        {categoryMatch.map(product=>(
-          <Discover key={product.id} product={product}/>))
-        }
-       
+        <div className="cards-discover__container">
+          {categoryMatch?.map((product) => (
+            <Discover key={product.id} product={product} />
+          ))}
+        </div>
       </article>
     </section>
   );

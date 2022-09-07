@@ -1,19 +1,13 @@
-import React from 'react'
+import React from "react";
 
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
-
-
-const Discover = ({product}) => {
-
-    console.log(product);
-
-    const navigate = useNavigate();
-
+const Discover = ({ product }) => {
+  const navigate = useNavigate();
   const handleClickProduct = () => {
-    navigate(`product/${product.id}`);
+    navigate(`/product/${product.id}`);
+    scroll(0, 0);
   };
-
 
   return (
     <article className="product__container">
@@ -33,7 +27,7 @@ const Discover = ({product}) => {
         </div>
       </div>
     </article>
-  )
-}
+  );
+};
 
-export default Discover
+export default Discover;

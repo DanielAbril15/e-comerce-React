@@ -1,0 +1,80 @@
+.login {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--light-gray);
+}
+.login__container {
+  display: grid;
+  gap: 6px;
+  width: 80%;
+  max-width: 400px;
+  padding: 30px 0;
+  background-color: #ffffff;
+  border-radius: 10px;
+  margin-top: 55px;
+}
+.login-welcome {
+  font-size: 23px;
+  width: 80%;
+  justify-self: center;
+  margin-bottom: 10px;
+}
+
+.login__test-user {
+  display: grid;
+  align-items: center;
+  margin-bottom: 20px;
+  background-color: #d8f5fd;
+  width: 80%;
+  justify-self: center;
+  padding: 25px 0;
+  border-radius: 5px;
+  gap: 10px;
+}
+
+.login__test-user h3 {
+  text-align: center;
+}
+.login__test-user p {
+  margin-left: 16px;
+}
+.login__test-user i {
+  color: var(--principal-color);
+  margin-right: 6px;
+}
+
+.login form {
+  justify-self: center;
+  display: grid;
+  gap: 16px;
+  width: 80%;
+}
+.login__option {
+  display: grid;
+  gap: 6px;
+}
+.login__option label {
+  font-weight: bold;
+  padding-left: 10px;
+  letter-spacing: 1px;
+}
+.login__option input {
+  height: 30px;
+  border: 1px solid var(--light-gray);
+  border-radius: 5px;
+  padding: 10px;
+}
+.login button {
+  height: 35px;
+  margin-top: 10px;
+  border: none;
+  background-color: var(--principal-color);
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-size: 18px;
+}
