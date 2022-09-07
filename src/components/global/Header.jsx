@@ -1,7 +1,19 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import Cart from "../global/Cart";
 import "../styles/header.css";
-const Header = () => {
+const Header = ({ cartSelected, setCartSelected }) => {
+  const userActive = localStorage.getItem("token");
+  const navigate = useNavigate();
+  const handleClickCart = () => {
+    if (userActive) {
+      setCartSelected(!cartSelected);
+    } else {
+      navigate("/login");
+      setCartSelected(false);
+    }
+  };
+
   return (
     <header>
       <nav className="navbar">
@@ -30,11 +42,12 @@ const Header = () => {
             </NavLink>
           </li>
 
-          <li className="navbar__item ">
+          <li onClick={handleClickCart} className="navbar__item">
             <i className="fa-solid fa-cart-shopping"></i>
           </li>
         </ul>
       </nav>
+      <Cart cartSelected={cartSelected} setCartSelected={setCartSelected} />
     </header>
   );
 };

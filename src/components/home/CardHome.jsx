@@ -3,6 +3,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/home-styles/cardHome.css";
 import getConfig from "../utils/getConfig";
+
 const CardHome = ({ product }) => {
   const navigate = useNavigate();
 

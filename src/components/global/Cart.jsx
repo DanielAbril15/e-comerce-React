@@ -4,18 +4,19 @@ import ProductCart from "../cart/ProductCart";
 import "../styles/cart.css";
 import getConfig from "../utils/getConfig";
 
-const Cart = () => {
+const Cart = ({ cartSelected, setCartSelected }) => {
   const [cartProducts, setCartProducts] = useState();
+
   const getAllProductsCart = () => {
     const URL = "https://ecommerce-api-react.herokuapp.com/api/v1/cart";
     axios
       .get(URL, getConfig())
       .then((res) => setCartProducts(res.data.data.cart.products))
-      .catch((err) => console.log(err));
+      .catch((err) => setCartProducts());
   };
   useEffect(() => {
     getAllProductsCart();
-  }, []);
+  }, [cartSelected]);
 
   const handleCheckout = () => {
     const URL = "https://ecommerce-api-react.herokuapp.com/api/v1/purchases";
@@ -30,27 +31,41 @@ const Cart = () => {
     axios
       .post(URL, obj, getConfig())
       .then((res) => {
-        console.log(res.data);
-        getAllProductsCart();
+        setCartProducts();
+        setCartSelected(!cartSelected);
       })
-      .catch((err) => setCartProducts());
+      .catch((err) => console.log(err));
   };
+  let totalPrice = 0;
+  const priceProduct = cartProducts?.map(
+    (product) =>
+      (totalPrice =
+        product.price * product.productsInCart.quantity + totalPrice)
+  );
 
   return (
-    <section className="cart__container">
-      <h3>Cart</h3>
-      {cartProducts?.map((product) => (
-        <ProductCart
-          key={product.id}
-          product={product}
-          getAllProductsCart={getAllProductsCart}
-        />
-      ))}
-      <div>
-        <span>Total</span>
-        <p>$2548</p>
+    <section
+      className={
+        cartSelected ? "cart__container--checked cart" : "cart__container"
+      }
+    >
+      <h3 className="cart">Cart</h3>
+      <div className="cart">
+        {cartProducts?.map((product) => (
+          <ProductCart
+            key={product.id}
+            product={product}
+            getAllProductsCart={getAllProductsCart}
+          />
+        ))}
       </div>
-      <button onClick={handleCheckout}>Checkout</button>
+      <div className="cart__total cart">
+        <div className="cart">
+          <span className="cart">Total</span>
+          <p className="cart total-price">${totalPrice}</p>
+        </div>
+        <button onClick={handleCheckout}>Checkout</button>
+      </div>
     </section>
   );
 };

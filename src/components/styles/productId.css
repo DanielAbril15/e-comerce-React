@@ -106,6 +106,10 @@
   border: none;
   color: #ffffff;
   font-size: 18px;
+  cursor: pointer;
+}
+.btn-id-cart:hover {
+  background-color: #f73737;
 }
 .btn-id-cart i {
   margin-left: 10px;

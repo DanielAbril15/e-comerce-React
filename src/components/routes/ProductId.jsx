@@ -8,6 +8,7 @@ import "swiper/css/bundle";
 import { useDispatch, useSelector } from "react-redux";
 import Discover from "../product/Discover";
 import { getAllProducts } from "../../store/slices/products.slice";
+import getConfig from "../utils/getConfig";
 
 const ProductId = () => {
   const [product, setProduct] = useState();
@@ -46,6 +47,20 @@ const ProductId = () => {
   const categoryMatch = products?.filter(
     (productCategory) => productCategory.category.name === currentCategory
   );
+
+  const handleAddCart = () => {
+    const URL = "https://ecommerce-api-react.herokuapp.com/api/v1/cart";
+    const obj = {
+      id: product.id,
+      quantity: quantity,
+    };
+    axios
+      .post(URL, obj, getConfig())
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => console.log(err));
+  };
   return (
     <section className="product-id">
       <ul className="page-position">
@@ -85,7 +100,7 @@ const ProductId = () => {
             </div>
           </div>
         </div>
-        <button className="btn-id-cart">
+        <button onClick={handleAddCart} className="btn-id-cart">
           Add to cart
           <i className="fa-solid fa-cart-shopping"></i>
         </button>

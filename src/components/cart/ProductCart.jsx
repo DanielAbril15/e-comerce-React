@@ -11,21 +11,22 @@ const ProductCart = ({ product, getAllProductsCart }) => {
       .then((res) => getAllProductsCart())
       .catch((err) => console.log(err));
   };
+
   return (
-    <article className="product-cart__container">
-      <div className="product-cart__description">
-        <div className="product-cart__titles">
-          <span>{product.brand}</span>
-          <p>{product.title}</p>
+    <article className="product-cart__container cart">
+      <div className="product-cart__description cart">
+        <div className="product-cart__titles cart">
+          <span className="cart">{product.brand}</span>
+          <p className="cart">{product.title}</p>
         </div>
 
-        <i onClick={handleDelete} className="fa-solid fa-trash-can"></i>
+        <i onClick={handleDelete} className="fa-solid fa-trash-can cart"></i>
       </div>
-      <p className="product-cart__quantity">
+      <p className="product-cart__quantity cart">
         {product.productsInCart.quantity}
       </p>
-      <p className="product-cart__price">
-        <span>Total</span> ${product.price}
+      <p className="product-cart__price cart">
+        <span>Total</span> ${product.price * product.productsInCart.quantity}
       </p>
     </article>
   );

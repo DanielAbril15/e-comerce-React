@@ -1,0 +1,12 @@
+.purchases {
+  background-color: var(--light-gray);
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10%;
+  margin-top: 60px;
+  justify-content: center;
+  gap: 20px;
+}
+.page-position__purchases {
+  color: white;
+}

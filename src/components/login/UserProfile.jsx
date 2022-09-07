@@ -1,7 +1,13 @@
 import React from "react";
 import "../styles/login-styles/userProfile.css";
+import { useNavigate } from "react-router-dom";
 
 const UserProfile = ({ user }) => {
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/");
+  };
   console.log(user);
   return (
     <section className="user-profile">
@@ -13,7 +19,7 @@ const UserProfile = ({ user }) => {
           {user?.data.user.firstName} {user?.data.user.lastName}
         </p>
 
-        <button>Log Out</button>
+        <button onClick={handleLogout}>Log Out</button>
       </article>
     </section>
   );

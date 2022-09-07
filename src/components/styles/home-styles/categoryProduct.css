@@ -1,0 +1,17 @@
+.catecory-selector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 16px;
+  gap: 10px;
+}
+.catecory-selector span {
+  color: var(--text);
+  font-weight: bold;
+}
+.catecory-selector select {
+  border: 1px solid var(--light-gray);
+  height: 30px;
+  padding-left: 10px;
+  cursor: pointer;
+}

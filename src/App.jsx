@@ -8,11 +8,23 @@ import Login from "./components/routes/Login";
 import Purchases from "./components/routes/Purchases";
 import Cart from "./components/global/Cart";
 import ProtectedRoutes from "./components/routes/ProtectedRoutes";
+import { useState } from "react";
 
 function App() {
+  const [cartSelected, setCartSelected] = useState(false);
+  const handleClickWindow = (e) => {
+    if (e.target.classList.contains("fa-cart-shopping")) {
+      setCartSelected(!cartSelected);
+    } else if (e.target.classList.contains("cart")) {
+      setCartSelected(true);
+    } else {
+      setCartSelected();
+    }
+  };
+
   return (
-    <div className="App">
-      <Header />
+    <div onClick={handleClickWindow} className="App">
+      <Header setCartSelected={setCartSelected} cartSelected={cartSelected} />
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/login" element={<Login />} />
