@@ -26,7 +26,8 @@
   color: #f73737;
 }
 .product-cart__quantity {
-  width: 50px;
+  width: 30px;
+  padding: 4px;
   border: 1px solid var(--gray);
   text-align: center;
   margin-bottom: 10px;
