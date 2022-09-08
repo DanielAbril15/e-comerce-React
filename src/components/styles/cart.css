@@ -3,13 +3,13 @@
   top: 60px;
   right: -310px;
   width: 300px;
-  height: 100vh;
+  height: 90vh;
   z-index: 100;
   background-color: #ffffff;
   border-top: 1px solid var(--gray);
   border-left: 1px solid var(--gray);
   padding: 10px;
-  padding-bottom: 70px;
+  padding-bottom: 60px;
   display: grid;
   grid-template-rows: 0.1fr 1.7fr 0.2fr;
   transition: right 2000ms ease;
@@ -20,7 +20,7 @@
   position: fixed;
   top: 60px;
   width: 300px;
-  height: 100vh;
+  height: 90vh;
   z-index: 100;
   background-color: #ffffff;
   border-top: 1px solid var(--gray);

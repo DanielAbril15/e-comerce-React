@@ -5,7 +5,10 @@ import "../styles/cart.css";
 import getConfig from "../utils/getConfig";
 
 const Cart = ({ cartSelected, setCartSelected }) => {
+  //guardo los productos de Cart
   const [cartProducts, setCartProducts] = useState();
+  //-----------------------------------------------------------------
+  //hago una constante donde guardo la llamada al endpoint que me trae los productos que hay en Cart(por usuario)
 
   const getAllProductsCart = () => {
     const URL = "https://ecommerce-api-react.herokuapp.com/api/v1/cart";
@@ -14,10 +17,15 @@ const Cart = ({ cartSelected, setCartSelected }) => {
       .then((res) => setCartProducts(res.data.data.cart.products))
       .catch((err) => setCartProducts());
   };
+  //------------------------------------------------------------------------------
+  //uso asincronia para ejecutar la llamada al endpoint, y en el arreglo de dependencias digo que se va a renderizar mi componente Cart cada que cambie la cantidad de productos que hay en el carrito de Compra
+
   useEffect(() => {
     getAllProductsCart();
   }, [cartSelected]);
 
+  //------------------------------------------------------------------------------
+  //Funcion que maneja la accion de comprar lo que hay en Cart, le paso informacion de envio y en getConfig se encuentra la informacion del token(codigo que verifica si el usuario hizo login o no)
   const handleCheckout = () => {
     const URL = "https://ecommerce-api-react.herokuapp.com/api/v1/purchases";
     const obj = {
@@ -36,6 +44,9 @@ const Cart = ({ cartSelected, setCartSelected }) => {
       })
       .catch((err) => console.log(err));
   };
+
+  //------------------------------------------------------------------------------
+  //Recorro los precios de los productos que estan en el carrito y los sumo para saber el precio total que el usuario tendria que pagar
   let totalPrice = 0;
   const priceProduct = cartProducts?.map(
     (product) =>

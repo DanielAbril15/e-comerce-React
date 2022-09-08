@@ -2,6 +2,7 @@ import React from "react";
 import "../styles/purchases-styles/purchaseCard.css";
 
 const PurchaseCard = ({ purchase }) => {
+  //renderizo la informacion de los pedidos que hizo el usuario
   return (
     <div className="purchase__container">
       <span className="purchase__id">{purchase.id}</span>

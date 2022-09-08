@@ -3,12 +3,15 @@ import "../styles/login-styles/userProfile.css";
 import { useNavigate } from "react-router-dom";
 
 const UserProfile = ({ user }) => {
+  //traigo la informacion del Usuario, para poderla mostrar en el perfil del Usuario
   const navigate = useNavigate();
+
+  //funcion de Logout que borra el token del localStorage y asi ya no poder acceder a rutas protegidas
   const handleLogout = () => {
     localStorage.removeItem("token");
     navigate("/");
   };
-  console.log(user);
+
   return (
     <section className="user-profile">
       <article className="profile__container">

@@ -3,14 +3,18 @@ import { useForm } from "react-hook-form";
 import "../styles/login-styles/formLogin.css";
 import axios from "axios";
 
-const FormLogin = ({ setIsLogged, setUser }) => {
+const FormLogin = ({ setUser }) => {
+  //uso el Hook useForm para guardar los valores que ingrese el usuario
   const { register, handleSubmit, reset } = useForm();
+
+  //Funcion de Login
   const submit = (data) => {
     const URL = "https://ecommerce-api-react.herokuapp.com/api/v1/users/login";
 
     axios
       .post(URL, data)
       .then((res) => {
+        //si los Datos son correctos guardo el Token en el Local Storage para que tenga acceso a las rutas protegidas
         if (res.data.status === "success") {
           localStorage.setItem("token", res.data.data.token);
 

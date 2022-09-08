@@ -5,6 +5,7 @@ import "../styles/home-styles/categoryProduct.css";
 const CategoryProduct = ({ setSelectCategory }) => {
   const [category, setCategory] = useState();
 
+  //Accedo al endPoint que guarda cuantas categorias hay en la base de datos de la tienda
   useEffect(() => {
     const URL =
       "https://ecommerce-api-react.herokuapp.com/api/v1/products/categories";
@@ -14,6 +15,7 @@ const CategoryProduct = ({ setSelectCategory }) => {
       .catch((err) => console.log(err));
   }, []);
 
+  //Al cambio de categoria de productos en el select, guardo el valor en setSelectCategory para enviarlo al Home
   const handleChange = (e) => {
     setSelectCategory(e.target.value);
   };

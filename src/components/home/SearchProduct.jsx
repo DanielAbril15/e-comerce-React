@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/home-styles/searchProduct.css";
 const SearchProduct = ({ products }) => {
   const navigate = useNavigate();
 
+  //funcion que guarda el valor de lo que escribo en en el Input, recorro todos los productos, si alguno coincide con el valor, me envia a la informacion del producto
   const handleSubmit = (e) => {
     e.preventDefault();
     const searchValue = e.target.searchProduct.value;

@@ -6,6 +6,8 @@ import "../styles/purchases.css";
 
 const Purchases = () => {
   const [purchases, setPurchases] = useState();
+
+  //Traigo la informacion de de los pedidos que hizo el usuario
   useEffect(() => {
     const URL = "https://ecommerce-api-react.herokuapp.com/api/v1/purchases";
     axios
@@ -13,6 +15,7 @@ const Purchases = () => {
       .then((res) => setPurchases(res.data.data.purchases))
       .catch((err) => console.log(err));
   }, []);
+
   return (
     <section className="purchases">
       <ul className="page-position">

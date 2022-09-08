@@ -13,8 +13,10 @@ import getConfig from "../utils/getConfig";
 const ProductId = () => {
   const [product, setProduct] = useState();
 
+  //con useParams cambio la url de forma dinamica
   const { id } = useParams();
 
+  //Entro al endpoint que trae la informacion del producto dependiendo de la imagen a la que le di click
   useEffect(() => {
     const URL = `https://ecommerce-api-react.herokuapp.com/api/v1/products/${id}`;
     axios
@@ -23,31 +25,29 @@ const ProductId = () => {
       .catch((err) => console.log(err));
   }, [id]);
 
+  //manejo cuantos productos quiero agregar. como minimo numero solo se acepta el 1
   const [quantity, setQuantity] = useState(1);
-
   const handlePlus = () => {
     setQuantity(quantity + 1);
   };
-
   const handleMinor = () => {
     if (quantity > 1) {
       setQuantity(quantity - 1);
     }
   };
+
+  //traigo todos los productos y dependiendo del producto que seleccione inicialmente(ID) traigo los productos que son de la misma categoria
   const currentCategory = product?.category;
-
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(getAllProducts());
   }, []);
-
   const products = useSelector((state) => state.productsSlice);
-
   const categoryMatch = products?.filter(
     (productCategory) => productCategory.category.name === currentCategory
   );
 
+  //Manejo el agregar al Cart, pero en este caso depende de la cantidad del mismo producto que el usuario quiera agregar
   const handleAddCart = () => {
     const URL = "https://ecommerce-api-react.herokuapp.com/api/v1/cart";
     const obj = {

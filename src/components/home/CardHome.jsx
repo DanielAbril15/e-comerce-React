@@ -6,12 +6,13 @@ import getConfig from "../utils/getConfig";
 
 const CardHome = ({ product }) => {
   const navigate = useNavigate();
-
+  //Funcion que cuando se hace Click en la imagen me dirige a la ventana especifica del producto y me deja al inicio de la ventana
   const handleClickProduct = () => {
     navigate(`/product/${product.id}`);
     scroll(0, 0);
   };
 
+  //Funcion que agrega al Cart, verifica el ID y la cantidad que va a agregar
   const handleAddCart = () => {
     const URL = "https://ecommerce-api-react.herokuapp.com/api/v1/cart";
     const obj = {
@@ -23,6 +24,7 @@ const CardHome = ({ product }) => {
       .then((res) => console.log(res.data))
       .catch((err) => console.log(err));
   };
+
   return (
     <article className="product__container">
       <figure onClick={handleClickProduct} className="product__img">

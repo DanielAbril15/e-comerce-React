@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 
 const Discover = ({ product }) => {
   const navigate = useNavigate();
+
+  //Al hacer Click envio al usuario al producto especifico
   const handleClickProduct = () => {
     navigate(`/product/${product.id}`);
     scroll(0, 0);

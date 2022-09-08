@@ -2,9 +2,14 @@ import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import Cart from "../global/Cart";
 import "../styles/header.css";
+
 const Header = ({ cartSelected, setCartSelected }) => {
+  //Con LocalStorage me aseguro  que el usuario ingrese con login para que pueda tener acceso a los productos del Cart
   const userActive = localStorage.getItem("token");
+
   const navigate = useNavigate();
+
+  //manejo el click del cart: si no hizo login redirijo a la pantalla de login
   const handleClickCart = () => {
     if (userActive) {
       setCartSelected(!cartSelected);
