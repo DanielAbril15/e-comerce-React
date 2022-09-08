@@ -61,7 +61,7 @@ const Cart = ({ cartSelected, setCartSelected }) => {
       }
     >
       <h3 className="cart">Cart</h3>
-      <div className="cart">
+      <div className="cart cart-products__container">
         {cartProducts?.map((product) => (
           <ProductCart
             key={product.id}
