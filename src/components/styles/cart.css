@@ -11,7 +11,7 @@
   border-left: 1px solid var(--gray);
   border-bottom: 1px solid var(--gray);
   padding: 10px;
-  padding-bottom: 70px;
+  padding-bottom: 30px;
   display: grid;
   grid-template-rows: 0.1fr 1.7fr 0.2fr;
   border-bottom-left-radius: 10px;
@@ -29,7 +29,7 @@
   border-left: 1px solid var(--gray);
   border-bottom: 1px solid var(--gray);
   padding: 10px;
-  padding-bottom: 70px;
+  padding-bottom: 30px;
   display: grid;
   grid-template-rows: 0.1fr 1.7fr 0.2fr;
   border-bottom-left-radius: 10px;
