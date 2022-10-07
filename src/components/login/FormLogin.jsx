@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import "../styles/login-styles/formLogin.css";
 import axios from "axios";
@@ -36,10 +36,10 @@ const FormLogin = ({ setUser }) => {
         <div className="login__test-user">
           <h3>Test User</h3>
           <p>
-            <i className="fa-solid fa-envelope"></i> danielabril@gmail.com
+            <i className="fa-solid fa-envelope"></i> danielabril01@gmail.com
           </p>
           <p>
-            <i className="fa-solid fa-lock"></i> 192837465
+            <i className="fa-solid fa-lock"></i> pass1234
           </p>
         </div>
         <form onSubmit={handleSubmit(submit)}>
