@@ -11,7 +11,7 @@ const Cart = ({ cartSelected, setCartSelected }) => {
   //hago una constante donde guardo la llamada al endpoint que me trae los productos que hay en Cart(por usuario)
 
   const getAllProductsCart = () => {
-    const URL = "https://ecommerce-api-react.herokuapp.com/api/v1/cart";
+    const URL = "https://e-commerce-api.academlo.tech/api/v1/cart";
     axios
       .get(URL, getConfig())
       .then((res) => setCartProducts(res.data.data.cart.products))
@@ -27,7 +27,7 @@ const Cart = ({ cartSelected, setCartSelected }) => {
   //------------------------------------------------------------------------------
   //Funcion que maneja la accion de comprar lo que hay en Cart, le paso informacion de envio y en getConfig se encuentra la informacion del token(codigo que verifica si el usuario hizo login o no)
   const handleCheckout = () => {
-    const URL = "https://ecommerce-api-react.herokuapp.com/api/v1/purchases";
+    const URL = "https://e-commerce-api.academlo.tech/api/v1/purchases";
     const obj = {
       street: "Green St. 1456",
       colony: "Southwest",

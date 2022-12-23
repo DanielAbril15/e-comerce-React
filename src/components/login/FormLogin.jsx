@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import "../styles/login-styles/formLogin.css";
 import axios from "axios";
@@ -9,7 +9,7 @@ const FormLogin = ({ setUser }) => {
 
   //Funcion de Login
   const submit = (data) => {
-    const URL = "https://ecommerce-api-react.herokuapp.com/api/v1/users/login";
+    const URL = "https://e-commerce-api.academlo.tech/api/v1/users/login";
 
     axios
       .post(URL, data)

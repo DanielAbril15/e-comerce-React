@@ -18,7 +18,7 @@ const ProductId = () => {
 
   //Entro al endpoint que trae la informacion del producto dependiendo de la imagen a la que le di click
   useEffect(() => {
-    const URL = `https://ecommerce-api-react.herokuapp.com/api/v1/products/${id}`;
+    const URL = `https://e-commerce-api.academlo.tech/api/v1/products/${id}`;
     axios
       .get(URL)
       .then((res) => setProduct(res.data.data.product))
@@ -49,7 +49,7 @@ const ProductId = () => {
 
   //Manejo el agregar al Cart, pero en este caso depende de la cantidad del mismo producto que el usuario quiera agregar
   const handleAddCart = () => {
-    const URL = "https://ecommerce-api-react.herokuapp.com/api/v1/cart";
+    const URL = "https://e-commerce-api.academlo.tech/api/v1/cart";
     const obj = {
       id: product.id,
       quantity: quantity,

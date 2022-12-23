@@ -14,7 +14,7 @@ const CardHome = ({ product }) => {
 
   //Funcion que agrega al Cart, verifica el ID y la cantidad que va a agregar
   const handleAddCart = () => {
-    const URL = "https://ecommerce-api-react.herokuapp.com/api/v1/cart";
+    const URL = "https://e-commerce-api.academlo.tech/api/v1/cart";
     const obj = {
       id: product.id,
       quantity: 1,

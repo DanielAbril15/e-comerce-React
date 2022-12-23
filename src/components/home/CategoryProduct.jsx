@@ -8,7 +8,7 @@ const CategoryProduct = ({ setSelectCategory }) => {
   //Accedo al endPoint que guarda cuantas categorias hay en la base de datos de la tienda
   useEffect(() => {
     const URL =
-      "https://ecommerce-api-react.herokuapp.com/api/v1/products/categories";
+      "https://e-commerce-api.academlo.tech/api/v1/products/categories";
     axios
       .get(URL)
       .then((res) => setCategory(res.data.data.categories))
