@@ -6,7 +6,7 @@ import getConfig from "../utils/getConfig";
 const ProductCart = ({ product, getAllProductsCart }) => {
   //funcion que maneja la eliminacion de producto en el Cart, verifica el id del producto y lo elimina, ademas se trae como prop getAllProductsCart que lo que hace es volver a renderizar la ventana Cart
   const handleDelete = () => {
-    const URL = `https://ecommerce-api-react.herokuapp.com/api/v1/cart/${product.id}`;
+    const URL = `https://e-commerce-api.academlo.tech/api/v1/cart/${product.id}`;
     axios
       .delete(URL, getConfig())
       .then((res) => getAllProductsCart())
