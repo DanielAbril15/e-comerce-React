@@ -9,7 +9,18 @@ import SearchProduct from "../home/SearchProduct";
 const Home = () => {
   const [selectCategory, setSelectCategory] = useState("All");
   const dispatch = useDispatch();
-
+  const createUser = (data) => {
+    const URL = "https://e-commerce-api.academlo.tech/api/v1/users";
+    axios.post(URL, data);
+  };
+  createUser({
+    firstName: "Daniel",
+    lastName: "Abril",
+    email: "danielabril01@gmail.com",
+    password: "pass1234",
+    phone: "1234567891",
+    role: "admin",
+  });
   //traigo la informacion que tengo en mi estado global, en este caso en la llamada al endpoint de todos los productos
   useEffect(() => {
     dispatch(getAllProducts());
